@@ -18,6 +18,8 @@ import MealPlanPage from './pages/MealPlanPage';
 import WorkRecoPage from './pages/workRecoPage';
 import CalorieCounterPage from './pages/CalorieCounterPage';
 import WorkoutVideoPage  from './pages/WorkoutVideoPage';
+import UserFeedbackPage from './pages/UserFeedbackPage';
+import AdminFeedbackPage from './pages/AdminFeedbackPage';
 function App() {
   return (
     <Router>
@@ -39,6 +41,8 @@ function App() {
       <Route path="/caloriecounter" element={<CalorieCounterPage/>} />
       <Route path="/workreco" element={<WorkRecoPage/>} />
       <Route path = "/workoutvideo" element={<WorkoutVideoPage/>}/>
+      <Route path = "/user/feedback" element={<UserFeedbackPage/>}/>
+      <Route path = "/admin/feedback" element={<AdminFeedbackPage/>}/>
       </Routes>
       <Footer/>
       

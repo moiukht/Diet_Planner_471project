@@ -6,12 +6,16 @@ import Wave from "react-wavify";
 const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [currentPage, setCurrentPage] = useState('');
-
+    const [username, setUsername] = useState('');
 
     useEffect(() => {
         // Check if there is a token in localStorage
         const token = localStorage.getItem('token');
-        setIsLoggedIn(!!token); // Set isLoggedIn to true if token exists
+        if (token) {
+            const user = JSON.parse(atob(token.split('.')[1]));
+            setUsername(user.username);
+            setIsLoggedIn(true); // Set isLoggedIn to true if token exists
+        }
 
         setCurrentPage(window.location.pathname);
     }, []);
@@ -57,6 +61,11 @@ const Header = () => {
                                 <Link to="/post" className={`text-white-500 hover:text-gray ${currentPage === '/post' ? '#FFFFFF 80%' : 'hover:bg-gray-600'} px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300`}>Community</Link>
                                 <Link to="/dashboard" className={`text-white-500 hover:text-gray ${currentPage === '/dashboard' ? '#FFFFFF 80%' : 'hover:bg-gray-600'} px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300`}>Dashboard</Link>
                                 <Link to="/userprofile/:username" className={`text-white-500 hover:text-gray ${currentPage === '/userprofile/:username' ? '#FFFFFF 80%' : 'hover:bg-gray-600'} px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300`}>Profile</Link>
+                                {username === 'admin' ? (
+                                    <Link to="/admin/feedback" className={`text-white-500 hover:text-gray ${currentPage === '/admin/feedback' ? '#FFFFFF 80%' : 'hover:bg-gray-600'} px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300`}>Feedback List</Link>
+                                ) : (
+                                    <Link to="/user/feedback" className={`text-white-500 hover:text-gray ${currentPage === '/user/feedback' ? '#FFFFFF 80%' : 'hover:bg-gray-600'} px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300`}>Feedback</Link>
+                                )}
                                 <button className={`text-white-500 hover:text-gray ${currentPage === '/logout' ? '#FFFFFF 80%' : 'hover:bg-gray-600'} px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300`} onClick={handleLogout}>Logout</button>
                             </>
                         ) : (
