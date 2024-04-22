@@ -39,7 +39,11 @@ const userSchema = new mongoose.Schema({
         default: 'user'
     },
     diseases: [{ type: String }] ,
-    medications: [{type: String }]
+    medications: [{type: String }],
+    feedback: {
+        type: String,
+        default: ""
+    }
 });
 
 // Create a User model from the schema

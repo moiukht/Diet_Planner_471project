@@ -6,6 +6,7 @@ const User = require('./models/user');
 const homeRoutes = require('./routes/home');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
+const adminRoutes = require('./routes/admin');
 const postRoutes = require('./routes/post');
 const dietRoutes = require('./routes/diet');
 const notificationRoutes = require('./routes/notifications'); // Import notifications routes
@@ -23,6 +24,7 @@ app.use('/user', userRoutes); // Routes for user profile and settings
 app.use('/post', postRoutes); // Routes for posts or community features
 app.use('/diet', dietRoutes); // Routes for diet-related features
 app.use('/notifications', notificationRoutes); // Use notifications routes
+app.use('/admin', adminRoutes);
 
 // Serve static files
 app.use(express.static(staticPath));

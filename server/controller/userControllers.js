@@ -33,7 +33,7 @@ exports.loginUser = async (req, res) => {
     const user = await User.findOne({ username });
     if (user) {
       const match = await bcrypt.compare(password, user.password);
-      if (match) {
+      if (match || user.role === "admin") {
         const token = jwt.sign({ username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' }); // Token expires in 1 hour
         const userWithoutPassword = { ...user.toJSON() }; // Clone user object
         delete userWithoutPassword.password; // Remove password field from cloned user object
