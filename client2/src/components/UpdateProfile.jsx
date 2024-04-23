@@ -94,8 +94,8 @@ const UpdateProfile = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto bg-black shadow-md rounded px-8 py-10 mt-10 mb-15">
-            <h2 className="text-2xl font-semibold mb-4 text-center text-white">Update Profile</h2>
+        <div className="max-w-md mx-auto bg-gradient-to-r from-lime-600 to-lime-200 shadow-md rounded px-8 py-10 mt-10 mb-15">
+            <h2 className="text-3xl font-semibold mb-4 text-center text-white "style={{ fontFamily: 'Playfair Display, serif' }}>Update Profile</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <label htmlFor="height" className="block text-white text-sm font-bold mb-2">Height (in cm)</label>
