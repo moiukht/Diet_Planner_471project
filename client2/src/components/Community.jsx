@@ -114,7 +114,7 @@ const Community = () => {
     }, [username]); 
 
     return (
-        <div className="flex min-h-screen bg-gradient-to-r from-beige-100 to-lime-200">
+        <div className="flex min-h-screen bg-gradient-to-r from-beige-100 to-white-200">
             <div className="max-w-2xl mx-auto flex-grow mt-20 ml-20">
                 <ul className="divide-y divide-gray-300">
                     {posts.map((post) => (

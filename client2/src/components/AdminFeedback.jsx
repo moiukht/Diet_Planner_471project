@@ -20,7 +20,7 @@ const AdminFeedback = () => {
   }, []);
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-r from-beige-100 to-lime-200">
+    <div className="flex min-h-screen bg-gradient-to-r from-lime-100 to-lime-100">
       <div className="max-w-2xl mx-auto flex-grow mt-20 ml-20">
         <div className='fixed py-4 bg-gray-100 rounded-lg px-4 mb-4 mt-20'>
           <h1 className="text-2xl font-semibold mb-4 text-center">User Feedback List</h1>

@@ -8,7 +8,7 @@ const Home = () => {
     
 
     return (
-        <div className="min h-screen flex flex-col items-center justify-center  bg-gradient-to-r from-beige-100 to-beige-300 ">
+        <div className="min h-screen flex flex-col items-center justify-center  bg-gradient-to-r from-lime-100 to-lime-100 ">
             <div className="flex justify-between w-full max-w-7x1 px-12">
                 {/* Left side with buttons */}
                 <div className="flex flex-col items-start justify-center w-1/2">

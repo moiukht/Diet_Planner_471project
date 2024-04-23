@@ -4,7 +4,7 @@ import HomeTwo2 from './hometwo2.jpg'
 const HomeTwo = forwardRef((props, ref) => {
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-beige-100 to-beige-300">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-lime-100 to-lime-100">
             <div className="max-w-7xl mx-auto px-4 mt-8">
                 <h2 className="text-4xl font-semibold text-gray-800 mb-4 text-center">What do you get?</h2>
                 {/* First row */}

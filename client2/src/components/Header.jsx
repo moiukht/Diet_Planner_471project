@@ -40,16 +40,16 @@ const Header = () => {
                 <div className="flex justify-between items-center">
                     <div className="flex items-center flex-shrink-0">
                     <img src={mainlogo} alt="MainLogo" className="w-12 h-12 mr-2 rounded-full " /> {/* Logo */}
-                        <span className="font-bold text-2xl tracking-tight text-gray-700 animate-pulse">
+                        <span className="font-bold text-4xl tracking-tight text-gray-900 animate-pulse">
                         
                         <span
                            style={{
                             color: "#fff",
                             textShadow:
-                              "0 0 5px #9cc030, 0 0 10px #000, 0 0 15px #000, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #000 ",
+                              "0 0 5px #9cc030, 0 0 10px #000, 0 0 15px #000, 0 0 20px #9cc030, 0 0 30px #fff, 0 0 40px #000 ",
                           }}
                         >
-                            FIT HOBA ?
+                            DietPlanner
                         </span>
                         
                         </span>

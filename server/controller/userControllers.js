@@ -77,13 +77,7 @@ exports.changePassword = async (req, res) => {
   }
 };
 
-// function generateToken(user) {
-//     return jwt.sign({ username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' }); // Token expires in 1 hour
-// }
 
-// const User = require("../models/user");
-
-// Update user profile
 exports.updateUserProfile = async (req, res) => { 
   const { username, height, weight, diseases, medications } = req.body;  
   try {
