@@ -7,6 +7,18 @@ import dietbg from './dietbg.webp'
 
 const llm = new OpenAI({apiKey: '27b95a3400e500cba3ab6afb030a0dae16b8d45fcb4626456aa5acc5b7901018', baseURL: 'https://api.together.xyz/v1', dangerouslyAllowBrowser: true });
 
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+
+// Access your API key as an environment variable (see "Set up your API key" above)
+const genAI = new GoogleGenerativeAI('AIzaSyCEbtiHre4zAWMGdZZ-XDXr9gH9iolFlPc');
+
+// ...
+
+// For text-only input, use the gemini-pro model
+const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+
+// ...
+
 const MealPlan = () => {
   const [age, setAge] = useState('');
   const [requiredCalories, setRequiredCalories] = useState('');
@@ -97,12 +109,14 @@ const MealPlan = () => {
         meal4: What should be the evening snack and how many calories are in there?
         meal5: What should be the dinner and how many calories are in there?
       `;
-      const response = await llm.chat.completions.create({
-        model: 'mistralai/Mixtral-8x7B-Instruct-v0.1',
-        messages:[{'role':'user', 'content':questionString}]
-      })
+      const prompt = questionString
+
+      const result = await model.generateContent(prompt);
+      const response = await result.response;
+      const text = response.text();
+      console.log(text);
       console.log(response)
-      const parsedResponse = parseResponse(response.choices[0].message.content);
+      const parsedResponse = parseResponse(text);
       setMealPlan(parsedResponse);
       setLoading(false);
       setGenerated(true);
