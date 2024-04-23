@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import OpenAI from "openai";
 import axios from 'axios';
+import dietbg from './dietbg.webp'
 
 const llm = new OpenAI({apiKey: '27b95a3400e500cba3ab6afb030a0dae16b8d45fcb4626456aa5acc5b7901018', baseURL: 'https://api.together.xyz/v1', dangerouslyAllowBrowser: true });
 
@@ -28,8 +29,8 @@ const CalorieCounter = () => {
         I have the following food items at home:
         ${foods.map(food => `- ${food}`).join('\n')}
         Firstly provide an estimate of the total calorie intake and suggest breakfast, lunch, and dinner options incorporating
-        the food I have at home for a total of ${plannedCalories} calories. Give the response in 4 paragraphs. One for how many
-        calories in the food. and the rest 3 for breakfast,lunch and dinner.
+        the food I have at home for a total of ${plannedCalories} calories. Give ypur response in 4 paragraphs only. One for how many
+        calories in the food. and the rest 3 paragraphs for breakfast,lunch and dinner.
       `;
   
       const response = await llm.chat.completions.create({
@@ -70,6 +71,9 @@ const CalorieCounter = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-beige-100 to-beige-300">
+     
+      
+   
       <div className="max-w-4xl w-full mx-auto flex mt-20">
         {/* Form Section */}
         <div className="w-1/2 p-4">
@@ -107,6 +111,7 @@ const CalorieCounter = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 

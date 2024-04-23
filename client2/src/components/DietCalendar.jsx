@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-
+import Footer from "./Footer";
 const DietCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [dietDates, setDietDates] = useState([]);
@@ -75,7 +75,7 @@ const DietCalendar = () => {
         localStorage.setItem(`dietDates_${username}`, JSON.stringify(updatedDates)); // Save to user-specific local storage
 
         // Update the count of days maintained
-        setMessage('Diet has been successfully maintained for this date!');
+        setMessage('Diet has been successfully maintained');
         setSelectedDate(null); // Clear selected date after adding
       } catch (error) {
         console.error('Error tracking diet:', error);
@@ -102,35 +102,39 @@ const DietCalendar = () => {
   };
 
   return (
-    <div className="flex flex-col h-[90vh] mt-[5rem] ml-[50rem]">
-      <div className="flex-grow flex">
+    <div className="relative flex flex-col h-screen">
+      <div className="absolute inset-0 z-0" style={{ backgroundImage: "url('https://bergen.edu/wp-content/uploads/Academic-Calendar-header.jpg')", backgroundSize: 'cover', opacity: 0.8 }}>
+      <div className="z-10 flex-grow flex justify-center items-center">
         <div className="w-3/4">
-        <h3 className="text-3xl font-bold text-green-600 mb-10" style={{ fontFamily: 'Roboto, sans-serif' }}>
-  Welcome to your Diet Calendar
-</h3>
-
+        <h3 className="text-3xl font-bold text-green-600 mb-10 text-center" style={{ fontFamily: 'Roboto, sans-serif', zIndex: '10' }}>
+            Welcome to your Diet Calendar
+          </h3>
           <div className="mb-4">
-            <button onClick={addDietDate} className="bg-green-500 text-white px-4 py-2 rounded">
+          <h3 className="text-3xl font-bold text-green-700 mb-10 text-center" style={{ fontFamily: 'Playfair Display, serif', zIndex: '10' }}>
+            Welcome to your Diet Calendar
+            </h3>
+          </div>
+          <div className="mb-4">
+            <button onClick={addDietDate} className="text-2xl bg-green-600 text-white px-4 py-2 rounded" style={{ fontFamily: 'Playfair Display, serif' }}>
               Mark Diet Maintained
             </button>
           </div>
           <Calendar
-          
             onChange={handleDateClick}
             value={selectedDate}
             tileClassName={tileClassName}
             className="w-full h-auto" // Tailwind CSS for full width
-            style={{ fontSize: "16px" }} // Inline CSS for font size
+            style={{ fontFamily: 'Playfair Display, serif',fontSize: "16px" }} // Inline CSS for font size
           />
-        <div className={`mt-4 ${selectedDate || message ? 'mt-8' : ''}`}>
-  {selectedDate && (
-    <div>
-      <p className="font-semibold">Selected Date:</p>
-      <p>{selectedDate.toLocaleDateString()}</p>
-    </div>
-  )}
-  {message && <p>{message}</p>}
-</div>
+          <div className={`mt-4 ${selectedDate || message ? 'mt-8' : ''}`}>
+            {selectedDate && (
+              <div>
+                <p className="font-semibold">Selected Date:</p>
+                <p>{selectedDate.toLocaleDateString()}</p>
+              </div>
+            )}
+            {message && <p>{message}</p>}
+          </div>
 
           <style>
             {`
@@ -143,19 +147,22 @@ const DietCalendar = () => {
             `}
           </style>
           <div className="text-left mt-8">
-  <div className="text-3xl font-bold mb-4" style={{ color: '#48BB78' }}>
-    Diet Maintenance
-  </div>
-  <p className="text-lg">
-    Diet maintained for <span style={{ color: '#F56565', fontSize: '1.125rem' }}>{calculateDaysMaintained()}</span> days
-  </p>
-  <p className="text-lg">
-    Diet maintained for <span style={{ color: '#F56565', fontSize: '1.125rem' }}>{calculateDaysMaintainedThisMonth()}</span> days this month
-  </p>
-</div>
+            <div className="text-3xl font-bold mb-4" style={{fontFamily: 'Playfair Display, serif', color: '#396b45' }}>
+              Diet Maintenance
+            </div>
+            <p className="text-lg font-bold">
+              Diet maintained for <span style={{ fontFamily: 'Playfair Display, serif', color: '#F56565', fontSize: '1.125rem' }}>{calculateDaysMaintained()}</span> days
+            </p>
+            <p className="text-lg font-bold">
+              Diet maintained for <span style={{ fontFamily: 'Playfair Display, serif',color: '#F56565', fontSize: '1.125rem' }}>{calculateDaysMaintainedThisMonth()}</span> days this month
+            </p>
+          </div>
         </div>
       </div>
     </div>
+    
+    </div>
+    
   );
 };
 
