@@ -49,7 +49,7 @@ const Header = () => {
                               "0 0 5px #9cc030, 0 0 10px #000, 0 0 15px #000, 0 0 20px #9cc030, 0 0 30px #fff, 0 0 40px #000 ",
                           }}
                         >
-                            DietPlanner
+                            FIT Hoba ?
                         </span>
                         
                         </span>
