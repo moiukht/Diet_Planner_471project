@@ -10,7 +10,7 @@ const llm = new OpenAI({apiKey: '27b95a3400e500cba3ab6afb030a0dae16b8d45fcb46264
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 // Access your API key as an environment variable (see "Set up your API key" above)
-const genAI = new GoogleGenerativeAI('AIzaSyCEbtiHre4zAWMGdZZ-XDXr9gH9iolFlPc');
+const genAI = new GoogleGenerativeAI('AIzaSyCIdb1V_JApZ89lbc1l6g9WdT9bFnoSx6E');
 
 // ...
 
